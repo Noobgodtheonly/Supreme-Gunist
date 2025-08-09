@@ -11,4 +11,5 @@ shader_parameter/scanline_strength = 0.5
 shader_parameter/barrel_distortion = 0.2
 shader_parameter/noise_strength = 0.01
 shader_parameter/vignette_strength = 0.8
+shader_parameter/bloom_threshold = 0.5
 shader_parameter/bloom_strength = 3.0

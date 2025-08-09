@@ -137,7 +137,7 @@ public partial class Bullet : Node2D
         }
         if (shouldDefaultHit)
         {
-            if ((body as DistributionSystem) != null) return;
+            if ((body as DistributionSystem) != null || body.GetParent() as GunMod != null) return;
             IEntity entity = body as IEntity;
 
             if (entity != null) entity.Attacked(damage);

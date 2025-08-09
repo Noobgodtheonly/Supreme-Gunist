@@ -34,7 +34,7 @@ public partial class CostomMouseController : CanvasLayer
     }
     public override void _PhysicsProcess(double delta)
     {
-        GetNode<Node2D>("Cage").Position = GetViewport().GetMousePosition().Snapped(Vector2.One * DisplayServer.WindowGetSize().X / 640);
+        GetNode<Node2D>("Cage").Position =  GetViewport().GetMousePosition();
         edges = GetGlobalCorners(shape, collider.GetNode<CollisionShape2D>("Collider"));
         CheckAndActivateButtonAction();
         foreach (HBoxContainer container in GetTree().GetNodesInGroup("Container"))
@@ -219,7 +219,7 @@ public partial class CostomMouseController : CanvasLayer
 
         if (movementList.buttonAtEndPos == null)
         {
-            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonatBeginingPosition.GetGlobalRect().Position + movementList.buttonatBeginingPosition.GetGlobalRect().Size / 2, time * 10);
+            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonatBeginingPosition.GetGlobalRect().Position + movementList.buttonatBeginingPosition.GetGlobalRect().Size / 2, time * 50);
             if (movementList.modThatFollows.Position.DistanceTo(movementList.buttonatBeginingPosition.GetGlobalRect().Position + movementList.buttonatBeginingPosition.GetGlobalRect().Size / 2) < 1)
             {
                 ModEnhancementScriptContainer modEnhancementScriptContainer = storage as ModEnhancementScriptContainer;
@@ -261,7 +261,7 @@ public partial class CostomMouseController : CanvasLayer
         else
         {
                 
-            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonAtEndPos.GetGlobalRect().Position + movementList.buttonAtEndPos.GetGlobalRect().Size / 2, time * 10);
+            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonAtEndPos.GetGlobalRect().Position + movementList.buttonAtEndPos.GetGlobalRect().Size / 2, time * 50);
             if (movementList.modThatFollows.Position.DistanceTo(movementList.buttonAtEndPos.GetGlobalRect().Position + movementList.buttonAtEndPos.GetGlobalRect().Size / 2) < 1)
             {
 

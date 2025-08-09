@@ -105,6 +105,7 @@ public partial class ModStorageScript : HBoxContainer, IModHBoxContainerScript
     public void ThrowModAway(Button button)
     {
         if (buttons[button] == null) return;
+        buttons[button].GetNode<ModVelocity>("ModVelocity").GetNode<CollisionShape2D>("Collider").SetDeferred("monitoring", true);
         (buttons[button]).Visible = true;
         (buttons[button]).GetNode<Intaractable>("Intaractable").SetPhysicsProcess(true);
 
@@ -119,9 +120,10 @@ public partial class ModStorageScript : HBoxContainer, IModHBoxContainerScript
             button.AddThemeStyleboxOverride(state, textures["Reset"]);
         }
 
-        if (odm.facingRight) velocity.velocity.X = -8;
+        if (odm.facingRight) velocity.velocity.X = -32;
         else
-            velocity.velocity.X = 8;
+            velocity.velocity.X = 32;
+        buttons[button].GetParent().GetNode<ModVelocity>("ModVelocity").GetNode<CollisionShape2D>("Collider").SetDeferred("monitoring", true);
         buttons[button] = null;
     }
     public void AddToStorage(Node2D gunMod)
@@ -135,6 +137,7 @@ public partial class ModStorageScript : HBoxContainer, IModHBoxContainerScript
                 if (!((DistributionSystem)GetTree().CurrentScene.GetNode<CharacterBody2D>("Player")).getMovementInputeStruct.cannotIntaractForNow.ActionDone()) return;
                 if(buttonMovementGuidesDict[button].buttonatBeginingPosition == button)
                 {
+
                     buttonMovementGuidesDict[button].modThatFollows.GetParent().RemoveChild(buttonMovementGuidesDict[button].modThatFollows);
                     buttonMovementGuidesDict[button].modThatFollows.Owner = null;
                     ((DistributionSystem)GetTree().CurrentScene.GetNode<CharacterBody2D>("Player")).GetParent().AddChild(buttonMovementGuidesDict[button].modThatFollows);
@@ -151,8 +154,9 @@ public partial class ModStorageScript : HBoxContainer, IModHBoxContainerScript
                     buttonMovementGuidesDict[button].modThatFollows = null;
                     buttonMovementGuidesDict[button].buttonAtEndPos = null;
                 }
-                    
-                
+
+               
+
                 ThrowModAway(button);
 
                 ((DistributionSystem)GetTree().CurrentScene.GetNode<CharacterBody2D>("Player")).getMovementInputeStruct.cannotIntaractForNow.Start();
@@ -174,9 +178,10 @@ public partial class ModStorageScript : HBoxContainer, IModHBoxContainerScript
                 {
                     button.AddThemeStyleboxOverride(state, textures[gunMod.GetType().Name]);
                 }
-
+                
 
                 buttons[button] = gunMod as GunMod;
+                buttons[button].GetNode<ModVelocity>("ModVelocity").GetNode<CollisionShape2D>("Collider").SetDeferred("monitoring", false);
                 return;
             }
             currentButtonIndex++;

@@ -1,43 +1,39 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0al8upeq6bdi"]
 
 [ext_resource type="Script" uid="uid://ch0f7adcbfxhr" path="res://Menue's/MenueScenes/Ui/UiScripts/CostomMouseController.cs" id="1_adj7i"]
-[ext_resource type="Texture2D" uid="uid://dr10mhatdbh0x" path="res://Scenes/Player/Visual/Cursor.png" id="1_urnwn"]
+[ext_resource type="Texture2D" uid="uid://ci8msshmgpi8r" path="res://Scenes/Player/Visual/Cursor.png" id="1_urnwn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmcll"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_adj7i"]
 atlas = ExtResource("1_urnwn")
-region = Rect2(0, 0, 5, 5)
+region = Rect2(0, 0, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_adj7i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jmcll")
+"texture": SubResource("AtlasTexture_adj7i")
 }],
 "loop": true,
 "name": &"CursorRegular",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_adj7i"]
-size = Vector2(12, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82kht"]
+size = Vector2(28, 28)
 
 [node name="CostomMouseController" type="CanvasLayer"]
-process_priority = 3
-process_physics_priority = 3
-layer = 102
 script = ExtResource("1_adj7i")
 metadata/_custom_type_script = "uid://ch0f7adcbfxhr"
 
 [node name="Cage" type="Node2D" parent="."]
 
-[node name="HBox" type="Area2D" parent="Cage"]
-
-[node name="Sprite" type="AnimatedSprite2D" parent="Cage/HBox"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Cage"]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_adj7i")
 animation = &"CursorRegular"
 
+[node name="HBox" type="Area2D" parent="Cage"]
+
 [node name="Collider" type="CollisionShape2D" parent="Cage/HBox"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_adj7i")
+shape = SubResource("RectangleShape2D_82kht")

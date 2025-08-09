@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-// The virtual low resolution to simulate. For a 1280x720 screen, 160x90 is a good ratio.
+// This uniform sets the virtual low resolution to simulate. For a 1280x720 screen, 160x90 is a good ratio.
 uniform vec2 virtual_resolution = vec2(160.0, 90.0);
 
 // The spacing of the high-resolution scanlines. A value of 2.0 means a line every 2 pixels.
@@ -9,8 +9,8 @@ uniform float scanline_spacing = 2.0;
 // The thickness of the scanline. A value of 1.0 makes it a single pixel thick.
 uniform float scanline_thickness = 1.0;
 
-// The darkness of the scanlines. A value around 0.4 to 0.7 looks more natural.
-uniform float scanline_strength = 0.5;
+// The darkness of the scanlines. I've lowered this to make them more subtle.
+uniform float scanline_strength = 0.3;
 
 // The amount of barrel distortion for a lens-like curvature.
 uniform float barrel_distortion = 0.15;
@@ -21,8 +21,14 @@ uniform float noise_strength = 0.01;
 // The strength of the vignette (darkened edges). A value between 0.5 and 1.5 is a good range.
 uniform float vignette_strength = 0.8;
 
-// The strength of the glow/bloom effect on bright pixels.
-uniform float bloom_strength = 3;
+// A new uniform to control how bright a pixel needs to be to start glowing. A lower value means more pixels glow.
+uniform float bloom_threshold = 0.1;
+
+// The strength of the glow/bloom effect on bright pixels. Now much more powerful.
+uniform float bloom_strength = 100.0;
+
+// The screen texture, now using the modern Godot hint for post-processing.
+uniform sampler2D screen_texture : hint_screen_texture;
 
 // A simple random function to generate noise.
 float random(vec2 uv) {
@@ -31,41 +37,43 @@ float random(vec2 uv) {
 
 void fragment() {
     // 1. Apply Barrel Distortion with subtle wobble for a lens-like effect.
-    vec2 uv = UV;
+    vec2 distorted_uv = UV;
     vec2 center = vec2(0.5, 0.5);
-    vec2 offset = uv - center;
+    vec2 offset = distorted_uv - center;
     float dist = dot(offset, offset);
     // The sin(TIME) adds a subtle, gentle wobble over time.
-    uv += offset * dist * (barrel_distortion + sin(TIME) * 0.01);
+    distorted_uv += offset * dist * (barrel_distortion + sin(TIME) * 0.01);
 
-    // 2. Pixelate the image.
+    // 2. Pixelate the distorted UV coordinates.
     vec2 screen_size = 1.0 / SCREEN_PIXEL_SIZE;
     vec2 pixel_size = screen_size / virtual_resolution;
-    vec2 uv_snapped = floor(uv * virtual_resolution) / virtual_resolution;
-    
-    // 3. Sample the color.
-    vec4 color = texture(TEXTURE, uv_snapped);
+    vec2 uv_snapped = floor(distorted_uv * virtual_resolution) / virtual_resolution;
 
-    // This is the key change: Bloom/Glow is now applied to the pixelated color *before* other effects.
-    // We check the brightness of the pixel and if it's bright enough, we add a glow.
-    float brightness = color.r; // Since it's black and white, all channels are the same.
-    float glow = max(0.0, brightness - 0.5) * bloom_strength;
-    
-    // We apply the glow to the sampled color itself.
-    color.rgb += vec3(glow);
+    // 3. Sample the colors.
+    // High-resolution color for the bloom effect using the new uniform.
+    vec4 high_rez_color = texture(screen_texture, SCREEN_UV);
 
-    // 4. Apply high-resolution scanlines with controllable thickness.
+    // 4. Bloom/Glow effect applied to the high-res texture before any pixelation.
+    vec3 bloom_color = max(vec3(0.0), high_rez_color.rgb - vec3(bloom_threshold)) * bloom_strength;
+
+    // 5. Sample the pixelated color and add the bloom to it.
+    vec4 low_rez_color = texture(TEXTURE, uv_snapped) + vec4(bloom_color, 0.0);
+
+    // 6. Apply high-resolution scanlines with controllable thickness.
     if (mod(FRAGCOORD.y, scanline_spacing) < scanline_thickness) {
-        color.rgb = mix(color.rgb, vec3(0.0), scanline_strength);
+        // The key change is here: We make the scanline strength dependent on the pixel's brightness.
+        // `1.0 - low_rez_color.r` will be close to 1.0 for dark pixels and 0.0 for bright pixels.
+        float dynamic_scanline_strength = scanline_strength * (1.0 - low_rez_color.r);
+        low_rez_color.rgb = mix(low_rez_color.rgb, vec3(0.0), dynamic_scanline_strength);
     }
 
-    // 5. Add subtle noise/static.
+    // 7. Add subtle noise/static.
     float noise = random(FRAGCOORD.xy) * noise_strength;
-    color.rgb += noise;
+    low_rez_color.rgb += noise;
 
-    // 6. Add a vignette to darken the edges.
+    // 8. Add a vignette to darken the edges.
     float vignette = smoothstep(0.4, 1.0, dist) * vignette_strength;
-    color.rgb *= 1.0 - vignette;
+    low_rez_color.rgb *= 1.0 - vignette;
 
-    COLOR = color;
+    COLOR = low_rez_color;
 }

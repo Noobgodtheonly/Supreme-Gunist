@@ -189,6 +189,7 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
 
     public Vector2 GetGunDir()
     {
+        
         // Get the mouse position from the *main* viewport in screen coordinates.
         Vector2 mouseScreenPosition = GetTree().Root.GetMousePosition();
 
@@ -220,35 +221,7 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
         return direction;
     }
 
-    // This is the new method for shooting your bullet.
-    public void ShootBullet()
-    {
-        // Check if the bullet scene is assigned.
-        if (BulletScene == null)
-        {
-            GD.PrintErr("BulletScene is not assigned in the inspector!");
-            return;
-        }
-
-        // Get the direction vector. This is the vector we've been working on.
-        Vector2 direction = GetGunDir();
-
-        // Get the bullet speed. You can set this as an [Export] variable or a constant.
-        float bulletSpeed = 1000f; // Adjust this value to your liking.
-
-        // Instantiate the bullet scene.
-        var bulletInstance = BulletScene.Instantiate<RigidBody2D>();
-
-        // Set the bullet's global position to the player's position.
-        bulletInstance.GlobalPosition = GlobalPosition;
-
-        // Set the bullet's velocity.
-        // We normalize the direction vector to ensure a consistent speed.
-        bulletInstance.LinearVelocity = direction.Normalized() * bulletSpeed;
-
-        // Add the bullet to the scene tree. This is crucial!
-        GetParent().AddChild(bulletInstance);
-    }
+    
 
     private void CheckState(float delta)
     {

@@ -7,7 +7,7 @@ public partial class SpringCamera2D : Camera2D
     [Export] public float Frequency = 4f;
     public float shakeStrength = 0f;
     private float shakeDecay = 8;
-    [Export] public float LookAheadDistance = 24f;
+    [Export] public float LookAheadDistance = 64f;
     [Export] public bool PixelSnap = true;
     public bool disableLookAhead = false;
 

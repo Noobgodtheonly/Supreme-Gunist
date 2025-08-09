@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpr311frhknyy"]
+
+[ext_resource type="Script" uid="uid://cfuieqcufyohx" path="res://Scenes/Gun/GunMods/Spray.cs" id="1_2cuw6"]
+[ext_resource type="Texture2D" uid="uid://bn12mvwgtkj35" path="res://Scenes/Gun/Visuals/Supreme GunistGunModsIcon.png" id="2_1w2n5"]
+[ext_resource type="Script" uid="uid://ccptkycigc8sm" path="res://GlobalScripts/Intaractables/Intaractable.cs" id="3_fv6fi"]
+[ext_resource type="Script" uid="uid://byo7ac2xd8ebg" path="res://GlobalScripts/Intaractables/IntaractableManuals/IntaractWithMods.cs" id="4_6mhfm"]
+[ext_resource type="Script" uid="uid://ms5bteed1v1l" path="res://GlobalScripts/VelocityBased/ModVelocity.cs" id="5_bpd3l"]
+[ext_resource type="Script" uid="uid://4tneyj27fgui" path="res://GlobalScripts/VelocityBased/Gravity.cs" id="6_n3yub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sfjf"]
+size = Vector2(18, 18)
+
+[node name="Spray" type="Node2D"]
+script = ExtResource("1_2cuw6")
+metadata/_custom_type_script = "uid://cfuieqcufyohx"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1w2n5")
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+
+[node name="PickUpArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
+shape = SubResource("RectangleShape2D_6sfjf")
+
+[node name="Intaractable" type="Node" parent="."]
+script = ExtResource("3_fv6fi")
+metadata/_custom_type_script = "uid://ccptkycigc8sm"
+
+[node name="IntaractWithMods" type="Node" parent="."]
+script = ExtResource("4_6mhfm")
+metadata/_custom_type_script = "uid://byo7ac2xd8ebg"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[node name="Gravity" type="Node" parent="."]
+script = ExtResource("6_n3yub")
+metadata/_custom_type_script = "uid://4tneyj27fgui"
+
+[node name="ModVelocity" type="Node" parent="."]
+script = ExtResource("5_bpd3l")
+metadata/_custom_type_script = "uid://ms5bteed1v1l"

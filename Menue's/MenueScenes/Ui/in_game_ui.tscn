@@ -1,0 +1,353 @@
+[gd_scene load_steps=10 format=3 uid="uid://da242w2fmui1v"]
+
+[ext_resource type="Texture2D" uid="uid://c83ddf1lj6k2t" path="res://Menue's/MenueScenes/Ui/Visuals/ModMenueBackground.png" id="1_m5apv"]
+[ext_resource type="Script" uid="uid://b0poip0xqc12b" path="res://Menue's/MenueScenes/Ui/UiScripts/UiScript.cs" id="1_wdeve"]
+[ext_resource type="Texture2D" uid="uid://dffbwhvbghe2h" path="res://Menue's/MenueScenes/Ui/Visuals/Ui.png" id="2_fql4b"]
+[ext_resource type="Script" uid="uid://bw21nk7qvfkb5" path="res://Menue's/MenueScenes/Ui/UiScripts/ModStorageScript.cs" id="3_djghs"]
+[ext_resource type="Texture2D" uid="uid://f5xpobkbxrac" path="res://Scenes/Gun/Visuals/Bullet.png" id="3_og3en"]
+[ext_resource type="Script" uid="uid://bwkav0rp6i7vx" path="res://Menue's/MenueScenes/Ui/UiScripts/ModEnhancementScript.cs" id="6_4sqrm"]
+[ext_resource type="Script" uid="uid://cdfeprs8uvf8q" path="res://Menue's/MenueScenes/Ui/UiScripts/ModEnhancementScriptContainer.cs" id="6_ocjow"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wdeve"]
+load_path = "res://.godot/imported/ModMenueBackground.png-9061ef292e289352722fcc62f73926e1.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_djghs"]
+texture = ExtResource("2_fql4b")
+region_rect = Rect2(0, 0, 8, 8)
+
+[node name="InGameUi" type="Control"]
+process_physics_priority = 101
+z_index = 101
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -45.0
+offset_right = -80.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wdeve")
+metadata/_custom_type_script = "uid://b0poip0xqc12b"
+
+[node name="GunEnhancementUi" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="GunEnhancementUi"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+texture = ExtResource("1_m5apv")
+
+[node name="Storage background Visual" type="NinePatchRect" parent="GunEnhancementUi/Background"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 3.0
+offset_right = 156.0
+offset_bottom = 15.0
+texture = SubResource("CompressedTexture2D_wdeve")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GunEnhancementUi/Background/Storage background Visual"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+
+[node name="Storage" type="HBoxContainer" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer"]
+layout_mode = 2
+script = ExtResource("3_djghs")
+metadata/_custom_type_script = "uid://bw21nk7qvfkb5"
+
+[node name="Button" type="Button" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer/Storage"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button2" type="Button" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer/Storage"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button3" type="Button" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer/Storage"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button4" type="Button" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer/Storage"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button5" type="Button" parent="GunEnhancementUi/Background/Storage background Visual/MarginContainer/Storage"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="BulletVisual" type="NinePatchRect" parent="GunEnhancementUi/Background"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 55.0
+offset_right = 46.0
+offset_bottom = 72.0
+texture = ExtResource("3_og3en")
+
+[node name="EnhancmentSlots" type="NinePatchRect" parent="GunEnhancementUi/Background"]
+layout_mode = 1
+offset_left = 49.0
+offset_top = 50.0
+offset_right = 146.0
+offset_bottom = 78.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("CompressedTexture2D_wdeve")
+patch_margin_top = 1
+patch_margin_bottom = 1
+
+[node name="GunParameters" type="MarginContainer" parent="GunEnhancementUi/Background/EnhancmentSlots"]
+layout_mode = 2
+offset_right = 97.0
+offset_bottom = 28.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+
+[node name="ModEnhancementScript" type="VBoxContainer" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters"]
+process_priority = 11
+process_physics_priority = 11
+layout_mode = 2
+script = ExtResource("6_4sqrm")
+metadata/_custom_type_script = "uid://bwkav0rp6i7vx"
+
+[node name="ModEnhancementScriptContainer" type="HBoxContainer" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript"]
+process_priority = 10
+process_physics_priority = 10
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("6_ocjow")
+metadata/_custom_type_script = "uid://cdfeprs8uvf8q"
+
+[node name="Button" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button2" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button3" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button4" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="ModEnhancementScriptContainer2" type="HBoxContainer" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript"]
+process_priority = 10
+process_physics_priority = 10
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("6_ocjow")
+metadata/_custom_type_script = "uid://cdfeprs8uvf8q"
+
+[node name="Button" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button2" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button3" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")
+
+[node name="Button4" type="Button" parent="GunEnhancementUi/Background/EnhancmentSlots/GunParameters/ModEnhancementScript/ModEnhancementScriptContainer2"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_djghs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_djghs")

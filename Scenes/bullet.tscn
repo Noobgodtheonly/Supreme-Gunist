@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy3eu6dqfa64a"]
+
+[ext_resource type="Script" uid="uid://dru2vj3adda2t" path="res://Scenes/Gun/GunScripts/Bullet.cs" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://f5xpobkbxrac" path="res://Scenes/Gun/Visuals/Bullet.png" id="2_ycag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
+size = Vector2(12, 4)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_oduel")
+metadata/_custom_type_script = "uid://dru2vj3adda2t"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ycag2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oduel")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp2wnmlsx1f3v"]
+
+[ext_resource type="Texture2D" uid="uid://cyu5qvcc3qqym" path="res://Scenes/Player/Visual/First Real Game Char.png" id="1_gt4i1"]
+
+[sub_resource type="Gradient" id="Gradient_slusu"]
+offsets = PackedFloat32Array(0.688889, 0.9, 0.988889)
+colors = PackedColorArray(1, 1, 1, 1, 0.145492, 0.145492, 0.145492, 1, 0.0347222, 0.0347222, 0.0347222, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_po4uj"]
+gradient = SubResource("Gradient_slusu")
+
+[sub_resource type="Gradient" id="Gradient_cacwa"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ib42"]
+gradient = SubResource("Gradient_cacwa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svtcl"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.7
+color_ramp = SubResource("GradientTexture1D_5ib42")
+color_initial_ramp = SubResource("GradientTexture1D_po4uj")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+texture = ExtResource("1_gt4i1")
+trail_enabled = true
+trail_lifetime = 1.52
+process_material = SubResource("ParticleProcessMaterial_svtcl")

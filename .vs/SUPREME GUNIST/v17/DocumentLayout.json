@@ -1,0 +1,440 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Korede\\Documents\\supreme-gunist\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\player\\scipts\\distributionsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\player\\scipts\\distributionsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunscripts\\playersgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunscripts\\playersgun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\costommousecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\costommousecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\player\\scipts\\movementstruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\player\\scipts\\movementstruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\modenhancementscriptcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\modenhancementscriptcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\modstoragescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\modstoragescript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunscripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunscripts\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\velocitybased\\modvelocity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\velocitybased\\modvelocity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\intaractables\\intaractablemanuals\\intaractwithmods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\intaractables\\intaractablemanuals\\intaractwithmods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\intaractables\\intaractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\intaractables\\intaractable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\intaractables\\intaractablemanuals\\intaractablesmanual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\intaractables\\intaractablemanuals\\intaractablesmanual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\velocitybased\\gravity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\velocitybased\\gravity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\worm thingny\\scripts\\wormthingnyscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\worm thingny\\scripts\\wormthingnyscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\modhboxcontainerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\modhboxcontainerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\buttonmovementguid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\buttonmovementguid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\player\\scipts\\inputestruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\player\\scipts\\inputestruct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\menue\u0027s\\menuescenes\\ui\\uiscripts\\modenhancementscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:menue\u0027s\\menuescenes\\ui\\uiscripts\\modenhancementscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\player\\scipts\\afterimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\player\\scipts\\afterimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunscripts\\gundata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunscripts\\gundata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunmods\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunmods\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\statetransition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\statetransition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunmods\\spray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunmods\\spray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\scenes\\gun\\gunmods\\gunmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:scenes\\gun\\gunmods\\gunmod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|c:\\users\\korede\\documents\\supreme-gunist\\globalscripts\\springcamera2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2C4238-005D-4222-9632-65288B0A4386}|Supreme Gunist.csproj|solutionrelative:globalscripts\\springcamera2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WormThingnyScript.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Worm Thingny\\scripts\\WormThingnyScript.cs",
+              "RelativeDocumentMoniker": "Scenes\\Worm Thingny\\scripts\\WormThingnyScript.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Worm Thingny\\scripts\\WormThingnyScript.cs",
+              "RelativeToolTip": "Scenes\\Worm Thingny\\scripts\\WormThingnyScript.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAIwNgAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T20:24:28.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ModEnhancementScript.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScript.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScript.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScript.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScript.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T16:50:25.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ModEnhancementScriptContainer.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScriptContainer.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScriptContainer.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScriptContainer.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModEnhancementScriptContainer.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAowBEAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T01:15:30.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\IEntity.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\IEntity.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\IEntity.cs",
+              "RelativeToolTip": "GlobalScripts\\IEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T01:03:22.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ModStorageScript.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModStorageScript.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModStorageScript.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModStorageScript.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModStorageScript.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAA8wIsAAAB4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T16:02:04.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DistributionSystem.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\DistributionSystem.cs",
+              "RelativeDocumentMoniker": "Scenes\\Player\\Scipts\\DistributionSystem.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\DistributionSystem.cs",
+              "RelativeToolTip": "Scenes\\Player\\Scipts\\DistributionSystem.cs",
+              "ViewState": "AQIAAO0AAAAAAAAAAAA9wAkBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T22:17:52.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AfterImage.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\AfterImage.cs",
+              "RelativeDocumentMoniker": "Scenes\\Player\\Scipts\\AfterImage.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\AfterImage.cs",
+              "RelativeToolTip": "Scenes\\Player\\Scipts\\AfterImage.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAIwBQAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T15:00:08.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GunData.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\GunData.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunScripts\\GunData.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\GunData.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunScripts\\GunData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:40:02.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MovementStruct.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\MovementStruct.cs",
+              "RelativeDocumentMoniker": "Scenes\\Player\\Scipts\\MovementStruct.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\MovementStruct.cs",
+              "RelativeToolTip": "Scenes\\Player\\Scipts\\MovementStruct.cs",
+              "ViewState": "AQIAAO0AAAAAAAAAAAAAAAgBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T14:23:00.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "InputeStruct.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\InputeStruct.cs",
+              "RelativeDocumentMoniker": "Scenes\\Player\\Scipts\\InputeStruct.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Player\\Scipts\\InputeStruct.cs",
+              "RelativeToolTip": "Scenes\\Player\\Scipts\\InputeStruct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T16:09:19.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ButtonMovementGuid.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ButtonMovementGuid.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ButtonMovementGuid.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ButtonMovementGuid.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ButtonMovementGuid.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T22:53:44.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CostomMouseController.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\CostomMouseController.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\CostomMouseController.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\CostomMouseController.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\CostomMouseController.cs",
+              "ViewState": "AQIAAEMBAAAAAAAAAAAAAF4BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:58:03.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ModHBoxContainerScript.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModHBoxContainerScript.cs",
+              "RelativeDocumentMoniker": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModHBoxContainerScript.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModHBoxContainerScript.cs",
+              "RelativeToolTip": "Menue\u0027s\\MenueScenes\\Ui\\UiScripts\\ModHBoxContainerScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T16:09:14.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Gravity.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\VelocityBased\\Gravity.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\VelocityBased\\Gravity.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\VelocityBased\\Gravity.cs",
+              "RelativeToolTip": "GlobalScripts\\VelocityBased\\Gravity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T00:00:45.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IntaractablesManual.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractablesManual.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractablesManual.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractablesManual.cs",
+              "RelativeToolTip": "GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractablesManual.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T22:18:53.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Intaractable.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\Intaractable.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\Intaractables\\Intaractable.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\Intaractable.cs",
+              "RelativeToolTip": "GlobalScripts\\Intaractables\\Intaractable.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAwwBwAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T22:17:22.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IntaractWithMods.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractWithMods.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractWithMods.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractWithMods.cs",
+              "RelativeToolTip": "GlobalScripts\\Intaractables\\IntaractableManuals\\IntaractWithMods.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwAsAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T22:14:13.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ModVelocity.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\VelocityBased\\ModVelocity.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\VelocityBased\\ModVelocity.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\VelocityBased\\ModVelocity.cs",
+              "RelativeToolTip": "GlobalScripts\\VelocityBased\\ModVelocity.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAzwB8AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T15:15:31.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StateTransition.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\StateTransition.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\StateTransition.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\StateTransition.cs",
+              "RelativeToolTip": "GlobalScripts\\StateTransition.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwAYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T22:01:43.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\Bullet.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunScripts\\Bullet.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\Bullet.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunScripts\\Bullet.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAzwD8AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T14:10:58.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Spray.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\Spray.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunMods\\Spray.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\Spray.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunMods\\Spray.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T14:33:52.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayersGun.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\PlayersGun.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunScripts\\PlayersGun.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunScripts\\PlayersGun.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunScripts\\PlayersGun.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAwwD8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:44:06.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\Explosion.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunMods\\Explosion.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\Explosion.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunMods\\Explosion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:36:46.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SpringCamera2D.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\SpringCamera2D.cs",
+              "RelativeDocumentMoniker": "GlobalScripts\\SpringCamera2D.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\GlobalScripts\\SpringCamera2D.cs",
+              "RelativeToolTip": "GlobalScripts\\SpringCamera2D.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAzwCsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T00:03:31.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GunMod.cs",
+              "DocumentMoniker": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\GunMod.cs",
+              "RelativeDocumentMoniker": "Scenes\\Gun\\GunMods\\GunMod.cs",
+              "ToolTip": "C:\\Users\\Korede\\Documents\\supreme-gunist\\Scenes\\Gun\\GunMods\\GunMod.cs",
+              "RelativeToolTip": "Scenes\\Gun\\GunMods\\GunMod.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:34:56.777Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

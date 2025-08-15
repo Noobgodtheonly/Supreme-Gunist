@@ -9,7 +9,7 @@ public partial class GunData : Resource
     public float speed = 4f;
     public float damage = 7;
     public float bulletTime = 0.9f;
-    public float gunCooldown = 0.4f;
+    public float gunCooldown = 0.3f;
     public int bulletCount = 1;
     public bool applyGravity;
     

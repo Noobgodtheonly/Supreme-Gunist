@@ -7,6 +7,7 @@
 size = Vector2(12, 4)
 
 [node name="Bullet" type="Node2D"]
+process_physics_priority = 3
 script = ExtResource("1_oduel")
 metadata/_custom_type_script = "uid://dru2vj3adda2t"
 

@@ -17,7 +17,7 @@ region_rect = Rect2(0, 0, 8, 8)
 
 [node name="InGameUi" type="Control"]
 process_physics_priority = 101
-z_index = 101
+z_index = 50
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

@@ -20,6 +20,8 @@ public  class TimeController
         currTime = 0;
         this.actionDuration = Mathf.Abs(actionDuration);
         this.cooldownDuration = Mathf.Abs(cooldownDuration);
+
+        GlobalTimeManager.AddTimer(this);
     }
     public void Start()
     {

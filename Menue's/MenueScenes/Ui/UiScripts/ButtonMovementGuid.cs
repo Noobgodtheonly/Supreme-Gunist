@@ -4,8 +4,21 @@ using System;
 public partial class ButtonMovementGuid : Node
 {
     public GunMod modThatFollows;
-    public Button buttonatBeginingPosition;
+    public Button buttonAtBeginingPosition;
     public Button buttonAtEndPos;
-    public GunMod modThatGetsMisplaced;
+    public IModHBoxContainerScript targetContainer;
+    public IModHBoxContainerScript beginingContainer;
+    public ButtonMovementGuid guidToMisplace;
     public bool lerpingToButtonPos;
+
+    public void Reset()
+    {
+        modThatFollows = null;
+        buttonAtBeginingPosition = null;
+        guidToMisplace = null;
+        buttonAtEndPos = null;
+        targetContainer = null;
+        beginingContainer = null;
+        lerpingToButtonPos = false;
+    }
 }

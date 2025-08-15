@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://witj5najuih"]
+
+[ext_resource type="Script" uid="uid://cw43lbx4doqdf" path="res://GlobalScripts/Time Related/TimeManagerUpdater.cs" id="1_7gosd"]
+
+[node name="TimeManagerScene" type="Node"]
+script = ExtResource("1_7gosd")
+metadata/_custom_type_script = "uid://cw43lbx4doqdf"

@@ -66,8 +66,6 @@ public partial class WormThingnyScript : CharacterBody2D,IEntity
 
     public override void _PhysicsProcess(double delta)
     {
-        hitTimer.Update((float)delta);
-        cooldownTime.Update((float)delta);
         onGround = IsOnFloor();
 
         if (!onGround)

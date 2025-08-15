@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82kht"]
-size = Vector2(28, 28)
+size = Vector2(41, 41)
 
 [node name="CostomMouseController" type="CanvasLayer"]
 script = ExtResource("1_adj7i")

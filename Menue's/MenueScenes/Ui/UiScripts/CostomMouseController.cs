@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Xml.Linq;
@@ -12,21 +13,27 @@ public partial class CostomMouseController : CanvasLayer
     [Export] DistributionSystem odm;
     public Vector2[] edges;
     public Area2D collider;
+    private Node2D cage;
     RectangleShape2D shape;
-    Button buttonBeingHeld;
 
-    public Vector2 modOffset = Vector2.Zero;
-    IModHBoxContainerScript storageCurrentlyBeingHeld;
-    IModHBoxContainerScript storageCurrentlyBeingTargeted;
+    private List<ButtonMovementGuid> modsInAction;
+    private ButtonMovementGuid buttonBeingHeld;
+
+ 
+    private Vector2 threeTimesOfModSize = Vector2.One * 3;
 
 
-    public bool caryingMod;
-    int previousZIndex = 0;
+    private int modZIndex;
+    
+
     public override void _Ready()
     {
 
         collider = GetNode<Node2D>("Cage").GetNode<Area2D>("HBox");
         shape = collider.GetNode<CollisionShape2D>("Collider").Shape as RectangleShape2D;
+        cage = GetNode<Node2D>("Cage");
+
+        modsInAction = new();
 
         Input.MouseMode = Input.MouseModeEnum.Hidden;
 
@@ -34,290 +41,249 @@ public partial class CostomMouseController : CanvasLayer
     }
     public override void _PhysicsProcess(double delta)
     {
-        GetNode<Node2D>("Cage").Position =  GetViewport().GetMousePosition();
+        cage.Position =  GetViewport().GetMousePosition();
         edges = GetGlobalCorners(shape, collider.GetNode<CollisionShape2D>("Collider"));
-        CheckAndActivateButtonAction();
-        foreach (HBoxContainer container in GetTree().GetNodesInGroup("Container"))
-        {
-            IModHBoxContainerScript storage = container as IModHBoxContainerScript;
-            if (storage != null)
-            {
-                
-                foreach (Button button in storage.buttonMovementGuidesDict.Keys.ToList())
-                {
-                    MouseFollow((float)delta, button,storage);
-                }
-            }
-        }
+
+        IsButtonPressed();
+        MouseFollow();
+        LerpToButtonPos((float)delta);
+        
     }
-    public void LoopAndCheckIfButtonShouldBeDoingSomthingIDono()
+    
+    public void MouseFollow()
     {
-        foreach (HBoxContainer container in GetTree().GetNodesInGroup("Container"))
+        if (buttonBeingHeld == null || buttonBeingHeld.modThatFollows == null) return;
+
+        if (odm.shoot && buttonBeingHeld.buttonAtBeginingPosition.IsVisibleInTree())
         {
-            if (container.IsVisibleInTree())
-            {
-                foreach (Button button in container.GetChildren())
-                {
-                    Vector2 buttonCenter = button.GetGlobalRect().Position + button.GetGlobalRect().Size / 2f;
-                    if (PointInQuad(edges, buttonCenter))
-                    {
-                        button.GrabFocus();
-                        if (odm.parry && (container as ModStorageScript) != null)
-                        {
-                            (container as ModStorageScript).ThrowModAway(button);
-                            return;
-                        }
-                        if (odm.shoot)
-                        {
-                            IModHBoxContainerScript storage = container as IModHBoxContainerScript;
-                            if (storage != null && storage.buttons[button] != null )
-                            {
-                                caryingMod = true;
-                                ButtonMovementGuid b = storage.buttonMovementGuidesDict[button];
-                                b.modThatFollows = storage.buttons[button];
-                                b.modThatFollows.GetParent().RemoveChild(b.modThatFollows);
-                                b.modThatFollows.Owner = null;
-                                 AddChild(b.modThatFollows);
-                                b.modThatFollows.Position = button.GetGlobalRect().Position + button.GetGlobalRect().Size / 2f;
-                                modOffset = b.modThatFollows.Position - GetNode<Node2D>("Cage").Position;
-                                b.modThatFollows.Visible = true;
-                                previousZIndex = b.modThatFollows.ZIndex;
-                                storage.buttonMovementGuidesDict[button].modThatFollows.ZIndex = 999;
-                                b.lerpingToButtonPos = false;
+            buttonBeingHeld.modThatFollows.GlobalPosition = cage.GlobalPosition;
 
-                                buttonBeingHeld = button;
-                                storageCurrentlyBeingHeld = storage;
+            TryDropMod();
 
-                                b.buttonatBeginingPosition = button;
-
-                                storage.buttonMovementGuidesDict[button] = b;
-
-                                storage.buttons[button] = null;
-                                foreach (var state in storage.states)
-                                {
-                                    button.AddThemeStyleboxOverride(state, storage.textures["Reset"]);
-                                }
-
-                            }
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public void CheckAndActivateButtonAction()
-    {
-        if (caryingMod) return;
-        LoopAndCheckIfButtonShouldBeDoingSomthingIDono();
-    }
-    public void CheckIfCurrentHeldButtonEndPosIsToBeSet()
-    {
-        foreach (HBoxContainer container in GetTree().GetNodesInGroup("Container"))
-        {
-            IModHBoxContainerScript storage = container as IModHBoxContainerScript;
-            if (container.IsVisibleInTree())
-            {
-                foreach (Button button in container.GetChildren())
-                {
-                    Vector2 buttonCenter = button.GetGlobalRect().Position + button.GetGlobalRect().Size / 2f;
-                    if (PointInQuad(edges, buttonCenter))
-                    {
-                        button.GrabFocus();
-                            
-                            if (storage != null)
-                            {
-                                ButtonMovementGuid guid = storageCurrentlyBeingHeld.buttonMovementGuidesDict[buttonBeingHeld];
-                                guid.buttonAtEndPos = button;
-                                storageCurrentlyBeingHeld.buttonMovementGuidesDict[buttonBeingHeld] = guid;
-                                storageCurrentlyBeingTargeted = storage;
-
-                                if (storage.buttons[button] != null && buttonBeingHeld != button )
-                                {
-                                    storage.buttonMovementGuidesDict[button].buttonatBeginingPosition = button;
-                                    storage.buttonMovementGuidesDict[button].buttonAtEndPos = buttonBeingHeld;
-                                    storage.buttonMovementGuidesDict[button].modThatFollows = storage.buttons[button];
-
-                                    storage.buttonMovementGuidesDict[button].modThatFollows.Visible = true;
-                                    storage.buttonMovementGuidesDict[button].modThatFollows.GetParent().RemoveChild(storage.buttonMovementGuidesDict[button].modThatFollows);
-                                    storage.buttonMovementGuidesDict[button].modThatFollows.Owner = null;
-                                    AddChild(storage.buttonMovementGuidesDict[button].modThatFollows);
-                                    storage.buttonMovementGuidesDict[button].modThatFollows.Position = button.GetGlobalRect().Size / 2f + button.GetGlobalRect().Position;
-                                    storage.buttonMovementGuidesDict[button].modThatFollows.ZIndex = 998;
-
-                                foreach (var state in storage.states)
-                                    {
-                                        button.AddThemeStyleboxOverride(state, storage.textures["Reset"]);
-                                    }
-                                    storage.buttons[button] = null;
-                                }
-                            }
-                        return;
-                    }
-                    else if(storage != null)
-                    {
-                        ButtonMovementGuid guid = storageCurrentlyBeingHeld.buttonMovementGuidesDict[buttonBeingHeld];
-                        guid.buttonAtEndPos = null;
-                        storageCurrentlyBeingHeld.buttonMovementGuidesDict[buttonBeingHeld] = guid;
-                        storageCurrentlyBeingTargeted = null;
-                        if (storage.buttonMovementGuidesDict[button].buttonatBeginingPosition != null && buttonBeingHeld != button)
-                        {
-
-                            storage.buttonMovementGuidesDict[button].modThatFollows.GetParent().RemoveChild(storage.buttonMovementGuidesDict[button].modThatFollows);
-                            storage.buttonMovementGuidesDict[button].modThatFollows.Owner = null;
-                            odm.GetParent().AddChild(storage.buttonMovementGuidesDict[button].modThatFollows);
-                            storage.buttonMovementGuidesDict[button].modThatFollows.ZIndex = previousZIndex;
-                            storage.buttonMovementGuidesDict[button].modThatFollows.Visible = false;
-
-                            storage.buttons[button] = storage.buttonMovementGuidesDict[button].modThatFollows;
-
-                            foreach (var state in storage.states)
-                            {
-                                button.AddThemeStyleboxOverride(state, storage.textures[storage.buttonMovementGuidesDict[button].modThatFollows.GetType().Name]);
-                            }
-                            storage.buttonMovementGuidesDict[button].buttonatBeginingPosition = null;
-                            storage.buttonMovementGuidesDict[button].buttonAtEndPos = null;
-                            storage.buttonMovementGuidesDict[button].modThatFollows = null;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public void MouseFollow(float time, Button button, IModHBoxContainerScript storage )
-    {
-        ButtonMovementGuid movementList = storage.buttonMovementGuidesDict[button];
-        HBoxContainer storageBoxContainerVar = storage as HBoxContainer;
-        if (movementList.buttonatBeginingPosition == null || movementList.modThatFollows == null)
-        {
-                return;
-        }
-        if (button == buttonBeingHeld)
-        {
-            if (odm.shoot && !movementList.lerpingToButtonPos)
-            {
-                CheckIfCurrentHeldButtonEndPosIsToBeSet();
-                storage.buttonMovementGuidesDict[button] = movementList;
-            }
-            if (odm.shoot && !movementList.lerpingToButtonPos && storageBoxContainerVar != null && storageBoxContainerVar.IsVisibleInTree())
-            {
-
-                movementList.modThatFollows.Position = GetNode<Node2D>("Cage").Position + modOffset;
-                collider.Position = modOffset;
-                edges = GetGlobalCorners(shape, collider.GetNode<CollisionShape2D>("Collider"));
-                storage.buttonMovementGuidesDict[button] = movementList;
-                return;
-            }
-
-            else
-            {
-                movementList.lerpingToButtonPos = true;
-                storage.buttonMovementGuidesDict[button] = movementList;
-            }
-        }
-        else if (storageCurrentlyBeingHeld != null && buttonBeingHeld != null && !storageCurrentlyBeingHeld.buttonMovementGuidesDict[buttonBeingHeld].lerpingToButtonPos) return;
-
-        if (movementList.buttonAtEndPos == null)
-        {
-            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonatBeginingPosition.GetGlobalRect().Position + movementList.buttonatBeginingPosition.GetGlobalRect().Size / 2, time * 50);
-            if (movementList.modThatFollows.Position.DistanceTo(movementList.buttonatBeginingPosition.GetGlobalRect().Position + movementList.buttonatBeginingPosition.GetGlobalRect().Size / 2) < 1)
-            {
-                ModEnhancementScriptContainer modEnhancementScriptContainer = storage as ModEnhancementScriptContainer;
-
-
-                movementList.modThatFollows.GetParent().RemoveChild(movementList.modThatFollows);
-                movementList.modThatFollows.Owner = null;
-                odm.GetParent().AddChild(movementList.modThatFollows);
-                movementList.modThatFollows.ZIndex = previousZIndex;
-                movementList.modThatFollows.Visible = false;
-                movementList.lerpingToButtonPos = false;
-                foreach (var state in storage.states)
-                {
-                    movementList.buttonatBeginingPosition.AddThemeStyleboxOverride(state, storage.textures[movementList.modThatFollows.GetType().Name]);
-                }
-               
-
-                storage.buttonMovementGuidesDict[button] = movementList;
-                if (buttonBeingHeld == button)
-                {
-                    if (modEnhancementScriptContainer != null)
-                    {
-                        modEnhancementScriptContainer.buttonWasChanged = true;
-                    }
-                    storage.buttons[movementList.buttonatBeginingPosition] = movementList.modThatFollows;
-                    
-                    storageCurrentlyBeingTargeted = null;
-                    storageCurrentlyBeingHeld = null;
-                    buttonBeingHeld = null;
-                    caryingMod = false;
-                }
-                movementList.modThatFollows = null;
-                movementList.buttonatBeginingPosition = null;
-                movementList.buttonAtEndPos = null;
-                collider.Position = Vector2.Zero;
-
-            }
         }
         else
         {
-                
-            movementList.modThatFollows.Position = movementList.modThatFollows.Position.Lerp(movementList.buttonAtEndPos.GetGlobalRect().Position + movementList.buttonAtEndPos.GetGlobalRect().Size / 2, time * 50);
-            if (movementList.modThatFollows.Position.DistanceTo(movementList.buttonAtEndPos.GetGlobalRect().Position + movementList.buttonAtEndPos.GetGlobalRect().Size / 2) < 1)
+            foreach(var guid in modsInAction)
             {
+                guid.lerpingToButtonPos = true;
+            }
+            buttonBeingHeld.modThatFollows.ZIndex = 998;
+            if(buttonBeingHeld.buttonAtEndPos != null)
+            {
+                buttonBeingHeld.beginingContainer.buttons[buttonBeingHeld.buttonAtBeginingPosition] = null;
+                buttonBeingHeld.targetContainer.buttons[buttonBeingHeld.buttonAtEndPos] = buttonBeingHeld.modThatFollows;
+            }
+            if(buttonBeingHeld.guidToMisplace != null)
+            {
+                buttonBeingHeld.guidToMisplace.targetContainer.buttons[buttonBeingHeld.guidToMisplace.buttonAtEndPos] = buttonBeingHeld.guidToMisplace.modThatFollows;
+            }
+            buttonBeingHeld = null;
+        }
+        
+        
+    }
+    private void TryDropMod()
+    {
+        foreach (Node node in GetTree().GetNodesInGroup("Container"))
+        {
 
-                ModEnhancementScriptContainer modEnhancementScriptContainerA = storageCurrentlyBeingTargeted as ModEnhancementScriptContainer;
-                ModEnhancementScriptContainer modEnhancementScriptContainerB = storageCurrentlyBeingHeld as ModEnhancementScriptContainer;
-                    
-                    
-                
+            IModHBoxContainerScript container = node as IModHBoxContainerScript;
 
-                movementList.modThatFollows.GetParent().RemoveChild(movementList.modThatFollows);
-                movementList.modThatFollows.Owner = null;
-                odm.GetParent().AddChild(movementList.modThatFollows);
-                movementList.modThatFollows.ZIndex = previousZIndex;
-                movementList.modThatFollows.Visible = false;
-                   
-                    
-                movementList.lerpingToButtonPos = false;
-                foreach (var state in storage.states)
+            if (container != null)
+            {
+                foreach (Button button in container.buttons.Keys)
                 {
-                    movementList.buttonAtEndPos.AddThemeStyleboxOverride(state, storage.textures[storage.buttonMovementGuidesDict[button].modThatFollows.GetType().Name]);
+                    if (button != null && button != buttonBeingHeld.buttonAtBeginingPosition)
+                    { 
+                        Vector2 buttonGlobalPos = button.GlobalPosition + button.Size / 2;
+
+                        if (PointInQuad(edges, buttonGlobalPos))
+                        {
+                            buttonBeingHeld.buttonAtEndPos = button;
+                            buttonBeingHeld.targetContainer = container;
+
+                            if (container.buttons[button] != null && (buttonBeingHeld.guidToMisplace == null || buttonBeingHeld.guidToMisplace != container.buttonMovementGuidesDict[button]))
+                            {
+                                if((buttonBeingHeld.guidToMisplace != null && buttonBeingHeld.guidToMisplace != container.buttonMovementGuidesDict[button]))
+                                {
+                                    container.buttonMovementGuidesDict[button].buttonAtEndPos = null;
+                                    container.buttonMovementGuidesDict[button].targetContainer = container.buttonMovementGuidesDict[button].beginingContainer;
+                                    EndModMovement(buttonBeingHeld.guidToMisplace);
+                                    buttonBeingHeld.guidToMisplace = null;
+                                }
+
+
+                                buttonBeingHeld.guidToMisplace = container.buttonMovementGuidesDict[button];
+                                SetModToFollow(container.buttons[button], container.buttonMovementGuidesDict[button], container, button);
+                                container.buttons[button].ZIndex = 998;
+
+                                container.buttonMovementGuidesDict[button].buttonAtEndPos = buttonBeingHeld.buttonAtBeginingPosition;
+                                container.buttonMovementGuidesDict[button].targetContainer = buttonBeingHeld.beginingContainer;
+                            }
+                            return;
+                        }
+                        else
+                        {
+                            buttonBeingHeld.buttonAtEndPos = null;
+                            buttonBeingHeld.targetContainer = buttonBeingHeld.beginingContainer;
+
+                            if(buttonBeingHeld.guidToMisplace != null && buttonBeingHeld.guidToMisplace == container.buttonMovementGuidesDict[button])
+                            {
+                                container.buttonMovementGuidesDict[button].buttonAtEndPos = null;
+                                container.buttonMovementGuidesDict[button].targetContainer = container.buttonMovementGuidesDict[button].beginingContainer;
+                                EndModMovement(buttonBeingHeld.guidToMisplace);
+                                buttonBeingHeld.guidToMisplace = null;
+                            }
+                        }
+                    }
                 }
-  
-                storage.buttonMovementGuidesDict[button] = movementList;
+            }
+        }
+    }
+    private void LerpToButtonPos(float time)
+    {
+        if (modsInAction.Count < 1) return;
 
-                if (button == buttonBeingHeld)
+        foreach(var guid in modsInAction.ToList())
+        {
+            if (guid.lerpingToButtonPos)
+            {
+                if (guid.buttonAtEndPos == null)
                 {
-                    if (modEnhancementScriptContainerA != null)
+                    
+                    Vector2 buttonCentre = guid.buttonAtBeginingPosition.GlobalPosition + guid.buttonAtBeginingPosition.Size / 2;
+                    guid.modThatFollows.GlobalPosition = guid.modThatFollows.GlobalPosition.Lerp(buttonCentre, time * 20);
+
+                    if ((buttonCentre - guid.modThatFollows.GlobalPosition).Length() <= 15)
                     {
-                        modEnhancementScriptContainerA.buttonWasChanged = true;
+                        EndModMovement(guid);
                     }
-                    else if (modEnhancementScriptContainerB != null)
-                    {
-                        modEnhancementScriptContainerB.buttonWasChanged = true;
-                    }
-                    storageCurrentlyBeingTargeted.buttons[movementList.buttonAtEndPos] = movementList.modThatFollows;
-                    storageCurrentlyBeingTargeted = null;
-                    buttonBeingHeld = null;
-                    collider.Position = Vector2.Zero;
-                    caryingMod = false;
+                    
                 }
                 else
                 {
-     
-                    storageCurrentlyBeingHeld.buttons[movementList.buttonAtEndPos] = movementList.modThatFollows;
+                    Vector2 buttonCentre = guid.buttonAtEndPos.GlobalPosition + guid.buttonAtEndPos.Size / 2;
+                    guid.modThatFollows.GlobalPosition = guid.modThatFollows.GlobalPosition.Lerp(buttonCentre, time * 20);
+
+                    if ((buttonCentre - guid.modThatFollows.GlobalPosition).Length() <= 15)
+                    {
+                        EndModMovement(guid);
+                    }
                 }
-                    
-
-                movementList.modThatFollows = null;
-                movementList.buttonAtEndPos = null;
-                movementList.buttonatBeginingPosition = null;
-                
-
             }
         }
+    }
+
+    private void EndModMovement(ButtonMovementGuid guid)
+    {
+        GD.Print(guid.modThatFollows == null);
+        guid.modThatFollows.ZIndex = modZIndex;
+        guid.modThatFollows.Visible = false;
+
+
+
+        if(guid.buttonAtEndPos == null)
+        {
+            foreach(var state in guid.targetContainer.states)
+                guid.buttonAtBeginingPosition.AddThemeStyleboxOverride(state, guid.targetContainer.textures[guid.modThatFollows.GetType().Name]);
+        }
+        else
+        {
+            foreach (var state in guid.targetContainer.states)
+                guid.buttonAtEndPos.AddThemeStyleboxOverride(state, guid.targetContainer.textures[guid.modThatFollows.GetType().Name]);
+        }
+
+       
+        modsInAction.Remove(guid);
+       
+
+        ModEnhancementScriptContainer slot = guid.targetContainer as ModEnhancementScriptContainer;
+        if (slot != null)
+        {
+            slot.buttonWasChanged = true;
+        }
+
+        guid.Reset();
+    }
+    public void IsButtonPressed()
+    {
+        if (buttonBeingHeld != null) return;
+
+        foreach(Node node in GetTree().GetNodesInGroup("Container"))
+        {
+            
+            IModHBoxContainerScript container = node as IModHBoxContainerScript;
+            
+            if(container != null)
+            {
+                foreach(Button button in container.buttons.Keys)
+                {
+                    if(button != null)
+                    {
+                        if (!button.IsVisibleInTree()) return;
+                        Vector2 buttonGlobalPos = button.GlobalPosition + button.Size/ 2;
+
+                        if (PointInQuad(edges, buttonGlobalPos) && container.buttonMovementGuidesDict[button].buttonAtBeginingPosition == null)
+                        {
+                            if (odm.parry)
+                            {
+                                ModStorageScript modStorageScript = container as ModStorageScript;
+
+                                if (modStorageScript != null)
+                                {
+                                    modStorageScript.ThrowModAway(button);
+                                    return;
+                                }
+                            }
+                            //This if statement is to see if i could carry a mod that is there aka shoot and !null
+                            if (odm.shoot && container.buttons[button] != null)
+                            {
+                                
+
+                                SetModToFollow(container.buttons[button], container.buttonMovementGuidesDict[button],container, button);
+                                buttonBeingHeld = container.buttonMovementGuidesDict[button];
+                                
+                                return;
+                               
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void SetModToFollow(GunMod mod,ButtonMovementGuid movementGuid, IModHBoxContainerScript container, Button button)
+    {
+        //Putting this in the cursors canvas layer
+        mod.GetParent().RemoveChild(mod);
+        mod.Owner = null;
+        AddChild(mod);
+        // end of it
+
+        //So the scale can be halfed and making it visible
+        mod.Scale = threeTimesOfModSize;
+        mod.Visible = true;
+
+        modsInAction.Add(movementGuid);
+
+        modZIndex = mod.ZIndex;
+        mod.ZIndex = 999;
+
+        movementGuid.buttonAtBeginingPosition = button;
+        movementGuid.targetContainer = container;
+        movementGuid.beginingContainer = container;
+
+        mod.GlobalPosition = cage.GlobalPosition;
+
+        foreach (var state in container.states)
+        {
+            button.AddThemeStyleboxOverride(state, container.textures["Reset"]);
+        }
+
+        movementGuid.modThatFollows = mod;
+
         
-        storage.buttonMovementGuidesDict[button] = movementList;
     }
     public Vector2[] GetGlobalCorners(RectangleShape2D shape, CollisionShape2D shapeNode)
     {

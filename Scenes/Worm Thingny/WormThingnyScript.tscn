@@ -480,6 +480,7 @@ _data = {
 }
 
 [node name="WormThingnyScript" type="CharacterBody2D"]
+process_physics_priority = 1
 script = ExtResource("1_tslgh")
 metadata/_custom_type_script = "uid://cydkk5bdd6wts"
 

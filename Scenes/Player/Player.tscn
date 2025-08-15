@@ -389,6 +389,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+process_physics_priority = 1
 z_index = 5
 safe_margin = 0.01
 script = ExtResource("1_ft8w5")

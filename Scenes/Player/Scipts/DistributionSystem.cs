@@ -18,8 +18,6 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
     [Export] public Curve dashFrictionScaleCurve;
     public float cyotiTime;
 
-    public delegate void timeControllerDelegat(float time);
-    public event timeControllerDelegat nowUpdateTime;
     public TimeController jumpTimeController;
     public TimeController dashTimeController;
     public TimeController wallJumpTime;
@@ -27,8 +25,7 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
     public TimeController dashAfterImageSpawnRate;
     public TimeController dashCooldownBlinkingTimeController;
 
-    // A variable to hold the bullet scene. Make sure to load your bullet scene here.
-    [Export] public PackedScene BulletScene;
+    
 
     public PackedScene afterImageScene = (PackedScene)ResourceLoader.Load("res://Scenes/Player/dash_after_image.tscn");
     public AnimationPlayer animationPlayer;
@@ -140,13 +137,7 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
         dashAfterImageSpawnRate = new TimeController(0.05f, 0);
         dashCooldownBlinkingTimeController = new TimeController(0.005f, 0);
 
-        nowUpdateTime += dashAfterImageSpawnRate.Update;
-        nowUpdateTime += jumpTimeController.Update;
-        nowUpdateTime += dashTimeController.Update;
-        nowUpdateTime += wallJumpTime.Update;
-        nowUpdateTime += cyotiTimeController.Update;
-        nowUpdateTime += getMovementInputeStruct.cannotIntaractForNow.Update;
-        nowUpdateTime += dashCooldownBlinkingTimeController.Update;
+        
 
         stateTransition.AddConditionTo(PlayerStates.Jump, jumpTimeController.ActionDone);
         stateTransition.AddConditionToAllExept(dashTimeController.ActionDone, null);
@@ -167,7 +158,6 @@ public partial class DistributionSystem : CharacterBody2D, IEntity
 
     public override void _PhysicsProcess(double delta)
     {
-        nowUpdateTime((float)delta);
         getMovementInputeStruct.CheckInput();
         CheckState((float)delta);
         getMovementStruct.ChangePos((float)delta);

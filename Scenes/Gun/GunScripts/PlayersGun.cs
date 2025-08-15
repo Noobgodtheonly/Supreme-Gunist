@@ -30,7 +30,6 @@ public partial class PlayersGun : Node2D
     }
     public override void _PhysicsProcess(double delta)
     {
-        timeController.Update((float)delta);
         if (odm.modifyGun)
         {
             gunData.Reset();

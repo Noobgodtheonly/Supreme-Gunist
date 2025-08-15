@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d08cu1xreqa7t"]
+
+[ext_resource type="Script" uid="uid://d04yptpeklyqv" path="res://Scenes/Gun/GunScripts/PlayersGun.cs" id="1_qx2rn"]
+
+[node name="PlayersGun" type="Node2D"]
+process_physics_priority = 2
+script = ExtResource("1_qx2rn")
+muzzleDist = 8.0
+metadata/_custom_type_script = "uid://d04yptpeklyqv"

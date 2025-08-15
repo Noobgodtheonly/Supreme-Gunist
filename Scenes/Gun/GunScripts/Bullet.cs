@@ -63,7 +63,6 @@ public partial class Bullet : Node2D
         if(hitAnim.GetParent() == null)
            GetTree().CurrentScene.GetNode<SubViewport>("SubViewport").GetNode<Node2D>("Node2D").AddChild(hitAnim);
         if (!activate) return;
-        actionTimer.Update((float)delta);
         if (actionTimer.ActionDone())DeActivate();
 
         foreach (GunMod mod in gunMods)
